@@ -1,4 +1,4 @@
-package studio.sodhium.academic;
+package studio.sodhium.academic.math.numeric;
 
 public class NewtonRaphson {
     public static final int MAX_STEPS = 10000;
