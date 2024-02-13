@@ -1,2 +1,2 @@
 # university
-Algorithms and utilities for university
+This repository houses a collection of miscellaneous academic code snippets and utilities. Whether you're exploring algorithms, solving mathematical operations, delving into logic puzzles, or diving into physics simulations, this repository provides a playground for academic exploration and experimentation. Feel free to browse, contribute, and utilize these resources for your academic endeavors.

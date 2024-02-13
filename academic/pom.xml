@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>studio.itpex.science</groupId>
+  <artifactId>academic</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Academic Code Hub</name>
+  <description>This repository houses a collection of miscellaneous academic code snippets and utilities written in Java. Whether you're exploring algorithms, solving mathematical operations, delving into logic puzzles, or diving into physics simulations, AcademicCodeHub provides a playground for academic exploration and experimentation. Feel free to browse, contribute, and utilize these resources for your academic endeavors.</description>
+  <dependencies>
+    <dependency>
+      <groupId>sodhium-commons</groupId>
+      <artifactId>sodhium-commons</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.6</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.10</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <repositories>
+  </repositories>
+</project>
