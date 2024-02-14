@@ -6,18 +6,29 @@ import java.util.Map.Entry;
 
 public class FiniteSet<T> {
     private HashMap<String, SetElement<T>> elements;
+    private String name;
 
-    public FiniteSet() {
+    public FiniteSet(String name) {
+        this.name = name;
         elements = new HashMap<>();
     }
-    
-    public FiniteSet(FiniteSetBuilder<T> builder) {
+
+    public boolean isEmpty() {
+        return elements.isEmpty();
+    }
+
+    public FiniteSet(String name, FiniteSetBuilder<T> builder) {
+        this.name = name;
         elements = new HashMap<>();
         init(builder);
     }
 
+    public String getName() {
+        return name;
+    }
+
     public FiniteSet<T> union(FiniteSet<T> setToAdd) {
-        FiniteSet<T> output = new FiniteSet<>();
+        FiniteSet<T> output = new FiniteSet<>(name + " \\cup " + setToAdd.name);
         output.elements = new HashMap<>();
         output.elements.putAll(elements);
         output.elements.putAll(setToAdd.elements);
@@ -25,10 +36,10 @@ public class FiniteSet<T> {
     }
 
     public FiniteSet<T> intersection(FiniteSet<T> setToIntersect) {
-        FiniteSet<T> output = new FiniteSet<>();
+        FiniteSet<T> output = new FiniteSet<>(name + " \\cap " + setToIntersect.name);
         output.elements = new HashMap<>();
         for (Entry<String, SetElement<T>> entry : elements.entrySet()) {
-            if(setToIntersect.elements.containsKey(entry.getKey())) {
+            if (setToIntersect.elements.containsKey(entry.getKey())) {
                 output.elements.put(entry.getKey(), entry.getValue());
             }
         }
@@ -36,16 +47,16 @@ public class FiniteSet<T> {
     }
 
     public FiniteSet<T> difference(FiniteSet<T> setToSustract) {
-        FiniteSet<T> output = new FiniteSet<>();
+        FiniteSet<T> output = new FiniteSet<>(name + " - " + setToSustract.name);
         output.elements = new HashMap<>();
         for (Entry<String, SetElement<T>> entry : elements.entrySet()) {
-            if(!setToSustract.elements.containsKey(entry.getKey())) {
+            if (!setToSustract.elements.containsKey(entry.getKey())) {
                 output.elements.put(entry.getKey(), entry.getValue());
             }
         }
         return output;
     }
-    
+
     public boolean isMember(String input) {
         return elements.containsKey(input);
     }
@@ -58,19 +69,23 @@ public class FiniteSet<T> {
     }
 
     public String asText() {
+        if (elements.isEmpty()) {
+            return "\\emptyset";
+        }
+
         String output = "{";
         String separator = "";
         for (SetElement<T> element : elements.values()) {
-            output+= separator + element.getRepresentation();
+            output += separator + element.getRepresentation();
             separator = ", ";
         }
-        output+= "}";
+        output += "}";
         return output;
     }
-    
+
     @Override
     public String toString() {
-        return asText();
+        return name + " = " + asText();
     }
 
 }
