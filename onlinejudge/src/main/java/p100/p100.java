@@ -67,7 +67,6 @@ class Main {
             for (Long i = min; i <= max; i++) {
                 if (!calculatedAmounts.containsKey(i)) {
                     completeThreeNPlusOneSequenceLength(i, calculatedAmounts);
-                    //System.out.println(calculatedAmounts);
                 }
                 Long amount = calculatedAmounts.get(i);
                 if (maxLength == null || maxLength.longValue() < amount.longValue()) {
