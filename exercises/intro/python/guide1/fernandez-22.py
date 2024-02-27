@@ -1,6 +1,7 @@
 # Martín René Vilugrón
 # mrvilugron@unrn.edu.ar
 # Ejercicios Python – 1
+# La sucesion de Fibonacci
 
 termsNumber = int(input("Por favor, ingrese la cantidad de terminos: "))
 
