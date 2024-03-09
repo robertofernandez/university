@@ -11,7 +11,7 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 
 class Main {
-    static boolean readFromFile = false;
+    static boolean readFromFile = true;
     static String filePath = "src/main/resources/p116.txt";
 
     static String ReadLn(int maxLg, InputStream inputStream) {
@@ -35,20 +35,19 @@ class Main {
     }
 
     public static void main(String args[]) {
-        try {
-            Main myWork = new Main();
-            myWork.Begin();
-        } catch (Exception e) {
-            
-        }
+        Main myWork = new Main();
+        myWork.Begin();
     }
 
     void Begin() {
-        String input = "";
-        StringTokenizer idata;
-
-        InputStream inputStream = System.in;
+        MyStringTokenizer idata;
         FileInputStream fileInputStream;
+        InputStream inputStream;
+        try {
+            inputStream = System.in;
+        } catch (Exception e) {
+            return;
+        }
 
         if (readFromFile) {
             try {
@@ -59,123 +58,84 @@ class Main {
             }
         }
 
-        while (true) {
-            try {
-                input = Main.ReadLn(255, inputStream);
-                if(input == null) {
-                    break;
-                }
-            } catch (Exception e) {
-                // TODO: handle exception
-            }
-            
-            Integer rows = null;
-            Integer columns = null;
-            try {
-                idata = new StringTokenizer(input);
-                rows = Integer.parseInt(idata.nextToken());
-                columns = Integer.parseInt(idata.nextToken());
-            } catch (Exception e) {
-                continue;
-            }
-            if(rows == 0 || columns == 0) {
-                continue;
-            }
+        idata = new MyStringTokenizer(inputStream);
 
+        while (idata.hasMoreTokens()) {
+            Integer rows = 0;
+            Integer columns = 0;
+            rows = Integer.parseInt(idata.nextToken());
+            columns = Integer.parseInt(idata.nextToken());
+            if (rows == 0 || columns == 0) {
+                continue;
+            }
             Integer currentRow = 0;
             Integer currentColumn = 0;
-
-            NodesMatrix matrix;
-
-            try {
-                matrix = new NodesMatrix(columns, rows);
-            } catch (Exception e) {
-                continue;
-            }
-
+            NodesMatrix matrix = new NodesMatrix(columns, rows);
             int currentElement = 0;
-
             while (currentElement < columns * rows) {
-                try {
-                    input = Main.ReadLn(255, inputStream);
-                    idata = new StringTokenizer(input);
-                    while (idata.hasMoreTokens()) {
-                        Integer value = Integer.parseInt(idata.nextToken());
-                        matrix.addNode(currentColumn, currentRow, new Node(value, currentColumn, currentRow));
-                        currentElement++;
-                        currentColumn++;
-                        if (currentColumn > columns - 1) {
-                            currentColumn = 0;
-                            currentRow++;
-                        }
+                if (idata.hasMoreTokens()) {
+                    Integer value = Integer.parseInt(idata.nextToken());
+                    matrix.addNode(currentColumn, currentRow, new Node(value, currentColumn, currentRow, columns));
+                    currentElement++;
+                    currentColumn++;
+                    if (currentColumn > columns - 1) {
+                        currentColumn = 0;
+                        currentRow++;
                     }
-                } catch (Exception e) {
-                    continue;
+                } else {
+                    break;
                 }
             }
-            
-            if(currentElement < columns * rows) {
+            if (currentElement < columns * rows) {
                 return;
             }
-
-            try {
-                for (int processedColumn = 1; processedColumn < columns; processedColumn++) {
-                    for (int i = 0; i < rows; i++) {
-                        ArrayList<Node> adjacents = matrix.getAdjacents(processedColumn, i);
-                        Collections.sort(adjacents);
-                        Node node = matrix.matrix[processedColumn][i];
-                        node.setTotalSum(adjacents.get(0).totalSum + node.value);
-                        node.previousNode = adjacents.get(0);
-                    }
+            for (int processedColumn = 1; processedColumn < columns; processedColumn++) {
+                for (int i = 0; i < rows; i++) {
+                    ArrayList<Node> adjacents = matrix.getAdjacents(processedColumn, i);
+                    Collections.sort(adjacents);
+                    Node node = matrix.matrix[processedColumn][i];
+                    node.setTotalSum(adjacents.get(0).totalSum + node.value);
+                    node.totalRowSum = adjacents.get(0).totalRowSum.withValue(node.row + 1);
+                    node.previousNode = adjacents.get(0);
                 }
-            } catch (Exception e) {
-                return;
             }
-            
-            ArrayList<Node> lastColumn = null;
+            ArrayList<Node> lastColumn = matrix.getLastColumn();
+            Collections.sort(lastColumn);
 
-            try {
-                lastColumn = matrix.getLastColumn();
-                Collections.sort(lastColumn);
-            } catch (Exception e) {
-                return;
+            Node finalNode = lastColumn.get(0);
+            Node currentNode = finalNode;
+            Stack<Node> nodesInPath = new Stack<>();
+            while (currentNode.previousNode != null) {
+                currentNode = currentNode.previousNode;
+                nodesInPath.push(currentNode);
             }
+            String outputLine = "";
+            while (nodesInPath.size() > 0) {
+                Node popedNode = nodesInPath.pop();
+                outputLine += (popedNode.row + 1) + " ";
+            }
+            outputLine += (finalNode.row + 1);
 
-            try {
-                Node finalNode = lastColumn.get(0);
-                Node currentNode = finalNode;
-                Stack<Node> nodesInPath = new Stack<>();
-                while (currentNode.previousNode != null) {
-                    currentNode = currentNode.previousNode;
-                    nodesInPath.push(currentNode);
-                }
-                String outputLine = "";
-                while (nodesInPath.size() > 0) {
-                    Node popedNode = nodesInPath.pop();
-                    outputLine += (popedNode.row + 1) + " ";
-                }
-                outputLine += (finalNode.row + 1);
-                
-                System.out.println(outputLine);
-                System.out.println(finalNode.totalSum);
-            } catch (Exception e) {
-                continue;
-            }
+            System.out.println(outputLine);
+            System.out.println(finalNode.totalSum);
         }
     }
 
     public class Node implements Comparable<Node> {
         Integer value;
+        //BigInteger ponderedRowValue;
         Integer totalSum;
+        RowsList totalRowSum;
         private Integer column;
         private Integer row;
         Node previousNode;
 
-        public Node(Integer value, Integer column, Integer row) {
+        public Node(Integer value, Integer column, Integer row, Integer totalColumns) {
             this.value = value;
             this.column = column;
             this.row = row;
             totalSum = value;
+            totalRowSum = new RowsList(row + 1);
         }
 
         public void setTotalSum(Integer totalSum) {
@@ -194,7 +154,8 @@ class Main {
         @Override
         public int compareTo(Node o2) {
             if (totalSum.equals(o2.totalSum)) {
-                return row.compareTo(o2.row);
+                //return row.compareTo(o2.row);
+                return totalRowSum.compareTo(o2.totalRowSum);
             }
             return totalSum.compareTo(o2.totalSum);
         }
@@ -232,6 +193,71 @@ class Main {
                 output.add(matrix[columns - 1][i]);
             }
             return output;
+        }
+    }
+
+    public class RowsList implements Comparable<RowsList> {
+        ArrayList<Integer> rows;
+
+        public RowsList() {
+            rows= new ArrayList<>();
+        }
+
+        public RowsList(Integer initialValue) {
+            rows= new ArrayList<>();
+            addValue(initialValue);
+        }
+
+
+        @Override
+        public int compareTo(RowsList o) {
+            int i= 0;
+            for (Integer value : rows) {
+                Integer anotherValue = o.rows.get(i++);
+                if(value.compareTo(anotherValue) != 0) {
+                    return value.compareTo(anotherValue);
+                }
+            }
+            return 0;
+        }
+        
+        public RowsList withValue(Integer value) {
+            RowsList output = new RowsList();
+            output.rows.addAll(rows);
+            output.addValue(value);
+            return output;
+        }
+
+        public void addValue(Integer value) {
+            rows.add(value);
+        }
+    }
+
+    public class MyStringTokenizer {
+        private InputStream inputStream;
+        private StringTokenizer tokenizer;
+
+        public MyStringTokenizer(InputStream inputStream) {
+            this.inputStream = inputStream;
+        }
+
+        public String nextToken() {
+            if (hasMoreTokens()) {
+                return tokenizer.nextToken();
+            } else {
+                return null;
+            }
+        }
+
+        public boolean hasMoreTokens() {
+            if (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                String input = Main.ReadLn(255, inputStream);
+                if (input == null || input.length() == 0) {
+                    return false;
+                }
+                tokenizer = new StringTokenizer(input);
+            }
+            return tokenizer.hasMoreElements();
         }
     }
 }
