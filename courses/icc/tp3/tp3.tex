@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{titling}
+
+\title{Introducción a Ingeniería en Computación}
+\author{Roberto Fernández \\ Albano Alvarez \\ Danira Haneck \\ Juan Cruz Ceballos \\ Emanuel Michelena \\ Jonathan Duarte}
+\date{}
+\newcommand{\unrn}{\textsc{Universidad Nacional de Río Negro}}
+\newcommand{\curso}{1\textsuperscript{er} Año: 2024 Grupo: 0010}
+\newcommand{\profesor}{Profesora: Paola Britos}
+\newcommand{\paperdesc}{Trabajo Práctico N° 3 – Representación Interna y Sistemas Numéricos}
+
+\begin{document}
+
+\begin{titlingpage}
+    \begin{center}
+        \vspace*{2cm}
+        {\LARGE \unrn \par}
+        \vspace{0.5cm}
+        {\Large Ingeniería en Computación \par}
+        \vspace{1.5cm}
+        {\Large \thetitle \par}
+        \vspace{1.5cm}
+        {\Large \paperdesc \par}
+        \vspace{2cm}
+        {\Large Por \par}
+        \vspace{0.5cm}
+        {\large \theauthor \par}
+        \vspace{2cm}
+        {\Large \profesor \par}
+        \vspace{0.5cm}
+        {\Large \curso \par}
+    \end{center}
+\end{titlingpage}
+
+\section{Convierta los números binarios a decimales}
+
+\begin{enumerate}
+    \item[a)] \begin{equation*} [111010111]_{2} = 2^{0} * 1 + 2^{1} * 1 + 2^{2} * 1 + 2^{3} * 0 + 2^{4} * 1 + 2^{5} * 0 + 2^{6} * 1 + 2^{7} * 1 + 2^{8} * 1\end{equation*} \begin{equation*} = 1 + 2 + 4 + 0 + 16 + 0 + 64 + 128 + 256 = [471]_{10}\end{equation*}
+    \item[b)]  \begin{equation*} [110011.011]_{2} = 2^{0} * 1 + 2^{1} * 1 + 2^{2} * 0 + 2^{3} * 0 + 2^{4} * 1 + 2^{5} * 1 + 2^{-1} * 0 + 2^{-2} * 1 + 2^{-3} * 1\end{equation*} \begin{equation*} = 1 + 2 + 0 + 0 + 16 + 32 + 0 + 0.25 + 0.12 = [51.38]_{10}\end{equation*}
+    \item[c)]  \begin{equation*} [101010.001]_{2} = 2^{0} * 0 + 2^{1} * 1 + 2^{2} * 0 + 2^{3} * 1 + 2^{4} * 0 + 2^{5} * 1 + 2^{-1} * 0 + 2^{-2} * 0 + 2^{-3} * 1\end{equation*} \begin{equation*} = 0 + 2 + 0 + 8 + 0 + 32 + 0 + 0 + 0.12 = [42.12]_{10}\end{equation*}
+\end{enumerate}
+
+\section{Convierta cada número a binario convirtiéndolo primero a octal.}
+
+\begin{enumerate}
+\item[a)] \begin{equation*}[675]_{10}\end{equation*}\begin{equation*} \frac{675}{8} =  84;  resto: 3\end{equation*}\begin{equation*} \frac{84}{8} =  10;  resto: 4\end{equation*}\begin{equation*} \frac{10}{8} =  1;  resto: 2\end{equation*}\begin{equation*}[675]_{10} = [1243]_8\end{equation*} \begin{equation*} [3]_8 = [011]_2\end{equation*} \begin{equation*} [4]_8 = [100]_2\end{equation*}\begin{equation*} [2]_8 = [010]_2\end{equation*}\begin{equation*} [1]_8 = [1]_2\end{equation*}\begin{equation*} [1243]_8 = [1010100011]_2\end{equation*}
+\item[b)] \begin{equation*}[757]_{10}\end{equation*}\begin{equation*} \frac{757}{8} =  94;  resto: 5\end{equation*}\begin{equation*} \frac{94}{8} =  11;  resto: 6\end{equation*}\begin{equation*} \frac{11}{8} =  1;  resto: 3\end{equation*}\begin{equation*}[757]_{10} = [1365]_8\end{equation*} \begin{equation*} [5]_8 = [101]_2\end{equation*} \begin{equation*} [6]_8 = [110]_2\end{equation*}\begin{equation*} [3]_8 = [011]_2\end{equation*}\begin{equation*} [1]_8 = [1]_2\end{equation*}\begin{equation*} [1365]_8 = [1011110101]_2\end{equation*}
+\item[c)] \begin{equation*}[377]_{10}\end{equation*}\begin{equation*} \frac{377}{8} =  47;  resto: 1\end{equation*}\begin{equation*} \frac{47}{8} =  5;  resto: 7\end{equation*}\begin{equation*}[377]_{10} = [571]_{8}\end{equation*}\begin{equation*} [1]_8 = [001]_2\end{equation*}\begin{equation*} [7]_8 = [111]_2\end{equation*}\begin{equation*} [5]_8 = [101]_2\end{equation*}\begin{equation*} [571]_8 = [101111001]_2\end{equation*}
+\end{enumerate}
+
+\section{Convierta cada número de decimal a octal.}
+
+\begin{enumerate}
+\item[a)] \begin{equation*}[67.625]_{10} = \frac{541}{8^{1}}\end{equation*}\begin{equation*} \frac{541}{8} =  67;  resto: 5\end{equation*}\begin{equation*} \frac{67}{8} =  8;  resto: 3\end{equation*}\begin{equation*} \frac{8}{8} =  1;  resto: 0\end{equation*}\begin{equation*}[67.625]_{10} = \frac{541}{8^{1}} = \frac{[1035]_{8}}{8^{1}} = [103.5]_{8}\end{equation*}
+\item[b)] \begin{equation*}[392.875]_{10} = \frac{3143}{8^{1}}\end{equation*}\begin{equation*} \frac{3143}{8} =  392;  resto: 7\end{equation*}\begin{equation*} \frac{392}{8} =  49;  resto: 0\end{equation*}\begin{equation*} \frac{49}{8} =  6;  resto: 1\end{equation*}\begin{equation*}[392.875]_{10} = \frac{3143}{8^{1}} = \frac{[6107]_{8}}{8^{1}} = [610.7]_8\end{equation*}
+\item[c)] \begin{equation*}[179.6125]_{10} = \frac{24107181670.4}{8^{9}}\end{equation*}\begin{equation*} \frac{24107181670.4}{8} =  3013397708;  resto: 6\end{equation*}\begin{equation*} \frac{3013397708}{8} =  376674713;  resto: 4\end{equation*}\begin{equation*} \frac{376674713}{8} =  47084339;  resto: 1\end{equation*}\begin{equation*} \frac{47084339}{8} =  5885542;  resto: 3\end{equation*}\begin{equation*} \frac{5885542}{8} =  735692;  resto: 6\end{equation*}\begin{equation*} \frac{735692}{8} =  91961;  resto: 4\end{equation*}\begin{equation*} \frac{91961}{8} =  11495;  resto: 1\end{equation*}\begin{equation*} \frac{11495}{8} =  1436;  resto: 7\end{equation*}\begin{equation*} \frac{1436}{8} =  179;  resto: 4\end{equation*}\begin{equation*} \frac{179}{8} =  22;  resto: 3\end{equation*}\begin{equation*} \frac{22}{8} =  2;  resto: 6\end{equation*}\begin{equation*}[179.6125]_{10} = \frac{24107181670.4}{8^{9}} = \frac{[263471463146]_{8}}{8^{9}} = [263.47\overline{1463}]_8\end{equation*}
+
+\end{enumerate}
+
+\section{Convierta cada número de octal a decimal.}
+\begin{enumerate}
+    \item[a)] \begin{equation*} [67.25]_{8} = 8^{0} * 7 + 8^{1} * 6 + 8^{-1} * 2 + 8^{-2} * 5\end{equation*} \begin{equation*} = 7 + 48 + 0.25 + 0.08 = [55.33]_{10}\end{equation*}
+    \item[b)] \begin{equation*} [476.76]_{8} = 8^{0} * 6 + 8^{1} * 7 + 8^{2} * 4 + 8^{-1} * 7 + 8^{-2} * 6\end{equation*} \begin{equation*} = 6 + 56 + 256 + 0.88 + 0.09 = [318.97]_{10}\end{equation*}
+    \item[c)] \begin{equation*} [672.65]_{8} = 8^{0} * 2 + 8^{1} * 7 + 8^{2} * 6 + 8^{-1} * 6 + 8^{-2} * 5\end{equation*} \begin{equation*} = 2 + 56 + 384 + 0.75 + 0.08 = [442.83]_{10}\end{equation*}
+\end{enumerate}
+
+\section{Convierta estos valores hexadecimales a decimales y luego de decimal a binario.}
+
+
+\begin{enumerate}
+    \item[a)] \begin{equation*} [A23B]_{16} = 16^{0} * 11 + 16^{1} * 3 + 16^{2} * 2 + 16^{3} * 10\end{equation*} \begin{equation*} = 11 + 48 + 512 + 40960 = [41531]_{10}\end{equation*} \begin{equation*}[41531]_{10}\end{equation*}\begin{equation*} \frac{41531}{2} =  20765;  resto: 1\end{equation*}\begin{equation*} \frac{20765}{2} =  10382;  resto: 1\end{equation*}\begin{equation*} \frac{10382}{2} =  5191;  resto: 0\end{equation*}\begin{equation*} \frac{5191}{2} =  2595;  resto: 1\end{equation*}\begin{equation*} \frac{2595}{2} =  1297;  resto: 1\end{equation*}\begin{equation*} \frac{1297}{2} =  648;  resto: 1\end{equation*}\begin{equation*} \frac{648}{2} =  324;  resto: 0\end{equation*}\begin{equation*} \frac{324}{2} =  162;  resto: 0\end{equation*}\begin{equation*} \frac{162}{2} =  81;  resto: 0\end{equation*}\begin{equation*} \frac{81}{2} =  40;  resto: 1\end{equation*}\begin{equation*} \frac{40}{2} =  20;  resto: 0\end{equation*}\begin{equation*} \frac{20}{2} =  10;  resto: 0\end{equation*}\begin{equation*} \frac{10}{2} =  5;  resto: 0\end{equation*}\begin{equation*} \frac{5}{2} =  2;  resto: 1\end{equation*}\begin{equation*} \frac{2}{2} =  1;  resto: 0\end{equation*}\begin{equation*}[41531]_{10} = [1010001000111011]_{2}\end{equation*}
+    \item[b)] \begin{equation*} [1DFE]_{16} = 16^{0} * 14 + 16^{1} * 15 + 16^{2} * 13 + 16^{3} * 1\end{equation*} \begin{equation*} = 14 + 240 + 3328 + 4096 = [7678]_{10}\end{equation*} \begin{equation*}[7678]_{10}\end{equation*}\begin{equation*} \frac{7678}{2} =  3839;  resto: 0\end{equation*}\begin{equation*} \frac{3839}{2} =  1919;  resto: 1\end{equation*}\begin{equation*} \frac{1919}{2} =  959;  resto: 1\end{equation*}\begin{equation*} \frac{959}{2} =  479;  resto: 1\end{equation*}\begin{equation*} \frac{479}{2} =  239;  resto: 1\end{equation*}\begin{equation*} \frac{239}{2} =  119;  resto: 1\end{equation*}\begin{equation*} \frac{119}{2} =  59;  resto: 1\end{equation*}\begin{equation*} \frac{59}{2} =  29;  resto: 1\end{equation*}\begin{equation*} \frac{29}{2} =  14;  resto: 1\end{equation*}\begin{equation*} \frac{14}{2} =  7;  resto: 0\end{equation*}\begin{equation*} \frac{7}{2} =  3;  resto: 1\end{equation*}\begin{equation*} \frac{3}{2} =  1;  resto: 1\end{equation*}\begin{equation*}[7678]_{10} = [1110111111110]_{2}\end{equation*}
+    \item[c)] \begin{equation*} [D3D0]_{16} = 16^{0} * 0 + 16^{1} * 13 + 16^{2} * 3 + 16^{3} * 13\end{equation*} \begin{equation*} = 0 + 208 + 768 + 53248 = [54224]_{10}\end{equation*} \begin{equation*}[54224]_{10}\end{equation*}\begin{equation*} \frac{54224}{2} =  27112;  resto: 0\end{equation*}\begin{equation*} \frac{27112}{2} =  13556;  resto: 0\end{equation*}\begin{equation*} \frac{13556}{2} =  6778;  resto: 0\end{equation*}\begin{equation*} \frac{6778}{2} =  3389;  resto: 0\end{equation*}\begin{equation*} \frac{3389}{2} =  1694;  resto: 1\end{equation*}\begin{equation*} \frac{1694}{2} =  847;  resto: 0\end{equation*}\begin{equation*} \frac{847}{2} =  423;  resto: 1\end{equation*}\begin{equation*} \frac{423}{2} =  211;  resto: 1\end{equation*}\begin{equation*} \frac{211}{2} =  105;  resto: 1\end{equation*}\begin{equation*} \frac{105}{2} =  52;  resto: 1\end{equation*}\begin{equation*} \frac{52}{2} =  26;  resto: 0\end{equation*}\begin{equation*} \frac{26}{2} =  13;  resto: 0\end{equation*}\begin{equation*} \frac{13}{2} =  6;  resto: 1\end{equation*}\begin{equation*} \frac{6}{2} =  3;  resto: 0\end{equation*}\begin{equation*} \frac{3}{2} =  1;  resto: 1\end{equation*}\begin{equation*}[54224]_{10} = [1101001111010000]_{2}\end{equation*}
+
+\end{enumerate}
+
+\end{document}
+
+
