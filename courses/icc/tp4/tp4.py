@@ -34,6 +34,8 @@ def leerCodigoDeComponente(codigoDePieza):
         prompt = "Ingrese un código de componente válido: "
         if isInt(codigoComoTexto):
             codigo = int(codigoComoTexto)
+            if codigo == 0:
+                return 0
             if codigo >= 101 and codigo <= 9999:
                 if codigo%100 == codigoDePieza:
                     entradaValidada = True
@@ -45,7 +47,26 @@ def leerCodigoDeComponente(codigoDePieza):
             prompt = "Ingrese un código de componente numérico válido: "
     return codigo
 
+def leerCodigoDePieza():
+    entradaValidada = False
+    codigo = 0
+    prompt = "Por favor, ingrese código de pieza: "
+    while not entradaValidada:
+        codigoComoTexto = input(prompt)
+        prompt = "Ingrese un código de pieza válido: "
+        if isInt(codigoComoTexto):
+            codigo = int(codigoComoTexto)
+            if codigo >= 0 and codigo <= 99:
+                    entradaValidada = True
+            else:
+                prompt = "Código fuera de rango. Ingrese un código de pieza válido: "
+        else:
+            prompt = "Ingrese un código de pieza numérico válido: "
+    return codigo
+
 #precio = leerPrecio()
 #print(f"El precio leído es {precio}")
-componente = leerCodigoDeComponente(21)
-print(f"El codigo leído es {componente}")
+#componente = leerCodigoDeComponente(21)
+#print(f"El codigo leído es {componente}")
+#pieza = leerCodigoDePieza()
+#print(f"El codigo leído es {pieza}")
