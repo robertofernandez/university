@@ -1,9 +1,12 @@
-#test basico 1
+#test sin piezas
+# Representa el camino 4
+# Salida esperada:
+# Proceso finalizado, 0 piezas procesadas.
 from procesar_piezas import procesarPiezas
 
-piezas = [1, 3, 55, 56, 0]
-componentes = [2101, 2201, 0, 2103, 0, 2155, 0, 2156, 0]
-precios = [21, 22, 23, 25, 26]
+piezas = [0]
+componentes = [0]
+precios = []
 
 piezaActual = 0
 componenteActual = 0
@@ -30,5 +33,5 @@ def leerCodigoDePieza2():
     piezaActual += 1
     return valor
 
-print("Ejecutando test 1")
+print("Ejecutando test: sin piezas")
 procesarPiezas(leerPrecio2, leerCodigoDePieza2, leerCodigoDeComponente2)

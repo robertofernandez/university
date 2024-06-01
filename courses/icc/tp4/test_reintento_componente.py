@@ -1,8 +1,11 @@
-#test basico 1
+#test: reintento de ingreso de componente
+# Representa el camino 3
+# Salida esperada:
+# Para la pieza 01, debe solicitar que se ingrese al menos un componente
 from procesar_piezas import procesarPiezas
 
 piezas = [1, 3, 55, 56, 0]
-componentes = [2101, 2201, 0, 2103, 0, 2155, 0, 2156, 0]
+componentes = [0, 2101, 2201, 0, 2103, 0, 2155, 0, 2156, 0]
 precios = [21, 22, 23, 25, 26]
 
 piezaActual = 0
