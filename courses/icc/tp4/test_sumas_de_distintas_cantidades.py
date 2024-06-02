@@ -41,5 +41,5 @@ def leerCodigoDePieza2():
     piezaActual += 1
     return valor
 
-print("Ejecutando test 1")
+print("Ejecutando test 'piezas con componentes cuyos precios suman distintas cantidades'")
 procesarPiezas(leerPrecio2, leerCodigoDePieza2, leerCodigoDeComponente2)
