@@ -24,4 +24,4 @@ def procesarPiezas(leerPrecio, leerCodigoDePieza, leerCodigoDeComponente):
                     contadorComponentes += 1
                     precio = leerPrecio()
                     precioTotalPieza += precio
-                    print(f"Componente {componente:02d}, de precio ${precio}, agregado a la pieza {pieza:02d}.")
+                    print(f"Componente {componente:04d}, de precio ${precio}, agregado a la pieza {pieza:02d}.")

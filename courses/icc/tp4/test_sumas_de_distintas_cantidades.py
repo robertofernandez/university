@@ -9,7 +9,7 @@
 from procesar_piezas import procesarPiezas
 
 piezas = [1, 3, 55, 56, 0]
-componentes = [2101, 2201, 0, 2103, 0, 2155, 2255, 2355, 0, 2156, 0]
+componentes = [101, 2201, 0, 2103, 0, 2155, 2255, 2355, 0, 2156, 0]
 precios = [21, 22, 23, 10, 12, 13, 456]
 # 21 + 22 = 43
 # 23 = 23
