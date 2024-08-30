@@ -79,21 +79,115 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <appear>
       <path d="M66,51 Q70,61 74,51" fill="none" stroke="#808080" stroke-width="2"/>
       <rect fill="none" height="30" stroke="#000000" stroke-width="2" width="40" x="50" y="50"/>
-      <circ-port height="10" pin="380,200" width="10" x="85" y="55"/>
+      <circ-port height="10" pin="330,200" width="10" x="85" y="55"/>
       <circ-port height="10" pin="370,350" width="10" x="75" y="45"/>
-      <circ-port height="8" pin="40,80" width="8" x="46" y="56"/>
-      <circ-port height="8" pin="120,80" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="40,70" width="8" x="46" y="56"/>
+      <circ-port height="8" pin="120,70" width="8" x="46" y="66"/>
       <circ-port height="8" pin="220,80" width="8" x="56" y="46"/>
       <circ-anchor facing="east" height="6" width="6" x="87" y="57"/>
     </appear>
-    <wire from="(350,200)" to="(380,200)"/>
-    <wire from="(350,150)" to="(350,200)"/>
-    <wire from="(40,80)" to="(40,90)"/>
-    <wire from="(120,80)" to="(120,90)"/>
+    <wire from="(410,240)" to="(410,310)"/>
+    <wire from="(180,290)" to="(430,290)"/>
+    <wire from="(240,110)" to="(240,180)"/>
+    <wire from="(180,210)" to="(180,290)"/>
+    <wire from="(310,120)" to="(310,200)"/>
+    <wire from="(100,160)" to="(100,180)"/>
+    <wire from="(110,210)" to="(110,230)"/>
+    <wire from="(170,210)" to="(170,230)"/>
+    <wire from="(160,160)" to="(160,180)"/>
+    <wire from="(150,110)" to="(150,130)"/>
+    <wire from="(230,210)" to="(230,230)"/>
+    <wire from="(440,240)" to="(440,270)"/>
+    <wire from="(120,210)" to="(120,300)"/>
+    <wire from="(70,110)" to="(70,140)"/>
+    <wire from="(150,130)" to="(180,130)"/>
+    <wire from="(310,220)" to="(400,220)"/>
+    <wire from="(60,310)" to="(410,310)"/>
+    <wire from="(310,200)" to="(330,200)"/>
+    <wire from="(80,120)" to="(230,120)"/>
+    <wire from="(120,150)" to="(140,150)"/>
+    <wire from="(110,130)" to="(110,180)"/>
+    <wire from="(420,240)" to="(420,300)"/>
+    <wire from="(40,160)" to="(40,220)"/>
+    <wire from="(90,110)" to="(90,170)"/>
+    <wire from="(50,350)" to="(370,350)"/>
+    <wire from="(140,160)" to="(140,230)"/>
+    <wire from="(200,160)" to="(200,230)"/>
+    <wire from="(80,160)" to="(80,230)"/>
+    <wire from="(80,110)" to="(80,120)"/>
+    <wire from="(60,130)" to="(110,130)"/>
+    <wire from="(310,200)" to="(310,220)"/>
+    <wire from="(60,110)" to="(60,130)"/>
+    <wire from="(40,70)" to="(40,90)"/>
+    <wire from="(120,70)" to="(120,90)"/>
+    <wire from="(120,300)" to="(420,300)"/>
+    <wire from="(40,160)" to="(80,160)"/>
+    <wire from="(100,160)" to="(140,160)"/>
+    <wire from="(90,110)" to="(130,110)"/>
+    <wire from="(160,160)" to="(200,160)"/>
+    <wire from="(70,140)" to="(170,140)"/>
+    <wire from="(120,150)" to="(120,180)"/>
+    <wire from="(140,230)" to="(170,230)"/>
+    <wire from="(200,230)" to="(230,230)"/>
+    <wire from="(80,230)" to="(110,230)"/>
+    <wire from="(60,170)" to="(90,170)"/>
+    <wire from="(50,250)" to="(50,350)"/>
+    <wire from="(220,80)" to="(220,180)"/>
+    <wire from="(170,140)" to="(170,180)"/>
+    <wire from="(140,110)" to="(140,150)"/>
+    <wire from="(50,110)" to="(50,220)"/>
+    <wire from="(180,130)" to="(180,180)"/>
+    <wire from="(160,110)" to="(240,110)"/>
+    <wire from="(60,170)" to="(60,220)"/>
+    <wire from="(430,240)" to="(430,290)"/>
+    <wire from="(240,270)" to="(440,270)"/>
+    <wire from="(60,250)" to="(60,310)"/>
+    <wire from="(230,120)" to="(230,180)"/>
+    <wire from="(240,210)" to="(240,270)"/>
+    <comp loc="(180,200)" name="SumCompleto_1bit">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="0" loc="(120,90)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
+    <comp lib="0" loc="(330,200)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+      <a name="label" val="S"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(120,70)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="6" loc="(91,39)" name="Text">
+      <a name="text" val="Nro de Grupo: 8"/>
+    </comp>
+    <comp lib="0" loc="(40,90)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
+    <comp loc="(240,200)" name="SumCompleto_1bit">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="0" loc="(400,220)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
     <comp lib="6" loc="(17,23)" name="Text">
       <a name="text" val="Sumador completo de 4 Bits"/>
       <a name="font" val="SansSerif bold 14"/>
       <a name="halign" val="left"/>
+    </comp>
+    <comp loc="(120,200)" name="SumCompleto_1bit">
+      <a name="facing" val="south"/>
     </comp>
     <comp lib="0" loc="(370,350)" name="Pin">
       <a name="facing" val="west"/>
@@ -101,33 +195,20 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="Cout"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp loc="(60,240)" name="SumCompleto_1bit">
+      <a name="facing" val="south"/>
+    </comp>
     <comp lib="0" loc="(220,80)" name="Pin">
       <a name="facing" val="south"/>
       <a name="tristate" val="false"/>
       <a name="label" val="Cin"/>
     </comp>
-    <comp lib="5" loc="(350,150)" name="Hex Digit Display"/>
-    <comp lib="0" loc="(380,200)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="4"/>
-      <a name="label" val="S"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="6" loc="(91,39)" name="Text">
-      <a name="text" val="Nro de Grupo: &lt;completar&gt;"/>
-    </comp>
-    <comp lib="0" loc="(40,80)" name="Pin">
+    <comp lib="5" loc="(310,120)" name="Hex Digit Display"/>
+    <comp lib="0" loc="(40,70)" name="Pin">
       <a name="facing" val="south"/>
       <a name="width" val="4"/>
       <a name="tristate" val="false"/>
       <a name="label" val="A"/>
-    </comp>
-    <comp lib="0" loc="(120,80)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="width" val="4"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="B"/>
     </comp>
   </circuit>
   <circuit name="SumCompleto_1bit">
